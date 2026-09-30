@@ -1,0 +1,8 @@
+wsl -d Debian
+cmake -S /mnt/c/Users/Kirill/Documents/cpp/3sem/dz1 -B ~/build_linux
+cmake --build ~/build_linux
+
+valgrind --leak-check=full --show-leak-kinds=all ~/build_linux/tests/tests
+
+cd ~/build_linux/
+valgrind --leak-check=full --show-leak-kinds=all ./tests/tests
